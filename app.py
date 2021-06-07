@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
@@ -40,8 +40,18 @@ def hello(id):
     # This is how you get data from the URL 
     return "Hello, " + str(id)   
 
-@app.route('/posts')
+@app.route('/posts', methods=['POST', 'GET'])
 def posts():
+
+    if request.method == 'POST':
+        post_title = request.form['title']
+        post_content = request.form['content']
+        new_post BlogPost(title = post_title, content=post_content, author='Tom')
+        db.session.add(new_post)
+        db.session.commit()
+        return redirect('/posts')
+    else:
+        all_posts = BlogPost.query.all()
     return render_template('posts.html', posts=all_posts)
 
 # Allows your request methods so you can't get the page is post is required

@@ -4,7 +4,21 @@
 <title> Posts </title>
 {% endblock %}
 
+
+
 {% block body %} 
+
+<hr>
+<h2>Create New Blog Post:</h2>
+<form action='/posts' method='POST'>
+    <h1></h1>Title: <input type='text' name='title' id='title'>
+    <br>
+    Post: <input type='text' name='content' id='content'>
+    <br>
+    <input type='submit' value='Post'>
+</form>
+<hr>
+
 <h1>Displaying all posts</h1>
 
     {%  for post in posts %}
