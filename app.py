@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
@@ -46,12 +46,12 @@ def posts():
     if request.method == 'POST':
         post_title = request.form['title']
         post_content = request.form['content']
-        new_post BlogPost(title = post_title, content=post_content, author='Tom')
+        new_post = BlogPost(title = post_title, content=post_content, author='Tom')
         db.session.add(new_post)
         db.session.commit()
         return redirect('/posts')
     else:
-        all_posts = BlogPost.query.all()
+        all_posts = BlogPost.query.order_by(BlogPost.date_posted).all()
     return render_template('posts.html', posts=all_posts)
 
 # Allows your request methods so you can't get the page is post is required
