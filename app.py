@@ -17,18 +17,6 @@ class BlogPost(db.Model):
         return 'Blog post ' + self.title
 
 
-all_posts = [
-    {
-        'title': 'Jenkins',
-        'content': 'How to use automation with Jenkins',
-        'author': 'Tom'
-    },
-    {
-        'title': 'AWS',
-        'content': 'Getting started with AWS'
-    }
-]
-
 
 @app.route('/')
 def index():
@@ -46,7 +34,8 @@ def posts():
     if request.method == 'POST':
         post_title = request.form['title']
         post_content = request.form['content']
-        new_post = BlogPost(title = post_title, content=post_content, author='Tom')
+        post_author = request.form['author']
+        new_post = BlogPost(title = post_title, content=post_content, author=post_author)
         db.session.add(new_post)
         db.session.commit()
         return redirect('/posts')
@@ -58,6 +47,20 @@ def posts():
 @app.route('/onlyget', methods=['POST', 'GET'])
 def get_req():
     return 'you can only get this webpage.'
+
+@app.route('/posts/delete/<int:id>')
+def delete(id):
+    post = BlogPost.query.get_or_404(id)
+    db.session.delete(post)
+    db.session.commit()
+    return redirect('/posts')
+
+@app.route('/posts/edit/<int:id>', method=['GET', 'POST'])
+def edit(id):
+    post = BlogPost.query.get_or_404(id)
+    db.session.edit(post)
+    db.session.commit()
+    return redirect('/posts')
 
 if __name__ == "__main__":
     app.run(debug=True)

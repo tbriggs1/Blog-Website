@@ -15,6 +15,7 @@
     <br>
     Post: <input type='text' name='content' id='content'>
     <br>
+    Author: <input type='text' name='author' id='author'>
     <input type='submit' value='Post'>
 </form>
 <hr>
@@ -31,6 +32,9 @@
         {% endif %}
 
         <p>{{ post.content }}</p>
+        <a href='/posts/delete/{{post.id}}'>Delete</a>
+        <a href='/posts/edit/{{post.id}}'>Edit</a>
+        <hr>
     {% endfor %}
 
 {% endblock %}
