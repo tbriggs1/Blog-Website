@@ -48,6 +48,13 @@ def posts():
 def get_req():
     return 'you can only get this webpage.'
 
+# Allows your request methods so you can't get the page is post is required
+@app.route('/blog', methods=['GET'])
+def blog():
+    all_posts = BlogPost.query.order_by(BlogPost.date_posted).all()
+    return render_template('blog.html', posts=all_posts)
+
+
 @app.route('/posts/delete/<int:id>')
 def delete(id):
     post = BlogPost.query.get_or_404(id)
