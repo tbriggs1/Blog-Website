@@ -2,3 +2,11 @@ body {
     font-family: 'Courier New', Courier, monospace;
 }
 
+nav {
+    margin-left: 3rem;
+}
+
+.blog-main {
+    margin-left: 3rem;
+    margin-top: 2rem;
+}
