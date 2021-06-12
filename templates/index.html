@@ -6,20 +6,26 @@
 
 {% block body %}
 <main id="index-main">
-    <div id="introduction"> 
-        <img src="../static/images/profile_picture.png" alt="tom" height="150px"/>
-        <h1>
-            Hi I'm 
-            <span class="FirstName">Tom</span> 
-            <span class="LastName">Briggs.</span>
-        </h1>
-        <h3>
-            I'm a <span class="DevOps">DevOps</span> engineer by day, coder by night. I have a keen
-            interest in Cyber Security, IoT, and the future of technology.
-        </h3> 
+    <div class="container" id="intro-section">
+        <div class="row">
+            <div class="col-lg-4" id="intro-image">
+                <img src="../static/images/profile_picture.png" alt="tom" height="150px"/>
+            </div>
+            <div class="col-lg-8">
+                <h1>
+                    Hello! I'm <br> 
+                    <span class="FirstName">Tom</span> 
+                    <span class="LastName">Briggs</span>
+                </h1>
+                <h4>
+                    I'm a <span class="DevOps">DevOps</span> engineer by day, coder by night. I have a keen
+                    interest in Cyber Security, IoT, and the future of technology.
+                </h4>
+            </div>
+        </div> 
     </div>
-    <div id="blog-description">
-        <h4>The blog</h4>
+    <div class="container" id="blog-intro">
+        <h3>The blog</h3>
         <p>This blog serves many purposes, entitally it was created to practice my python skills,
             mainly aquiring knowledge of the Flask framework. Secondly, it serves as both a way
             for internal learning and external learning. Any knowledge, thoughts, or opinions I share
@@ -31,6 +37,7 @@
             Therefore, I welcome any feedback, whether positive or negative, so please reach out to me on my email
             which will be located in the footer, I'm always happy for a discussion.
         </p>
+        <a href="./blog"><button class="blog-button">Dive in!</button></a>
     </div>
 </main> 
 {% endblock %}
