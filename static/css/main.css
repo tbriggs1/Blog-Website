@@ -76,4 +76,14 @@ body {
 #technologies {
     width: 60%;
     margin-top: 3rem;
+    margin-bottom: 2rem;
 }
+
+#technologies h3 {
+    margin-bottom: 2rem;
+}
+
+svg{
+    fill: #ffffff;
+}
+
