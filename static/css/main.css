@@ -33,16 +33,25 @@ body {
 }
 
 #blog-intro h3 {
-    color: #FF6263;
+    color: #12B0E8;
 }
 
 #blog-intro button {
     background: #F4BE2C;
     border: none;
     padding: 0.4rem;
-    padding-right: 1rem;
-    padding-left: 1rem;
-    border-radius: 15px;
+    padding-right: 1.2rem;
+    padding-left: 1.2rem;
+    border-radius: 10px;
+    color: #242B2E;
+    transition: 0.4s;
+    border: 1px solid #F4BE2C;
+}
+
+#blog-intro button:hover{
+    background: #242B2E;
+    color: #F4BE2C;
+    border: 1px solid #F4BE2C;
 }
 
 
@@ -64,4 +73,7 @@ body {
     align-items: center;
 }
 
-
+#technologies {
+    width: 60%;
+    margin-top: 3rem;
+}
