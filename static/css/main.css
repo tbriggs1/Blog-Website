@@ -29,7 +29,7 @@ body {
 
 #blog-intro{
     margin-top: 3rem;
-    width: 60%;
+    width: 65%;
 }
 
 #blog-intro h3 {
@@ -57,7 +57,7 @@ body {
 
 #intro-section{
     margin-top: 3rem;
-    width: 60%;
+    width: 65%;
 }
 
 .FirstName, .LastName{
@@ -74,12 +74,16 @@ body {
 }
 
 #technologies {
-    width: 60%;
+    width: 65%;
     margin-top: 3rem;
     margin-bottom: 2rem;
 }
 
 #technologies h3 {
+    margin-bottom: 2rem;
+}
+
+#technologies .row {
     margin-bottom: 2rem;
 }
 
